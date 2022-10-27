@@ -24,7 +24,7 @@ requirements:
     - ninja
     - meson
     - pkg-config
-    - glib  # [build_platform != target_platform]
+    - patch           # [not win]
   host:
     - gobject-introspection
     - glib
@@ -43,6 +43,7 @@ about:
     - COPYING
   summary: A GObject library to create cabinet files
   dev_url: https://github.com/GNOME/gcab
+  doc_url: https://github.com/GNOME/gcab
 
 extra:
   recipe-maintainers:
