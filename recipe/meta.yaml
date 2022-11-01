@@ -29,6 +29,8 @@ requirements:
     - gobject-introspection
     - glib
     - zlib
+  run:
+    - gettext           #  [osx]
 
 test:
   commands:
