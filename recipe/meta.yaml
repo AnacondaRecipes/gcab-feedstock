@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: http://ftp.acc.umu.se/pub/GNOME/sources/gcab/{{ version }}/gcab-{{ version }}.tar.xz
+  url: https://ftp.acc.umu.se/pub/GNOME/sources/gcab/{{ version }}/gcab-{{ version }}.tar.xz
   sha256: 67a5fa9be6c923fbc9197de6332f36f69a33dadc9016a2b207859246711c048f
   patches:
     - disable-linker-script.patch  # [osx]
@@ -52,3 +52,6 @@ extra:
   recipe-maintainers:
     - isuruf
     - xhochy
+  skip-lints:
+    - missing_description
+    - missing_doc_source_url
