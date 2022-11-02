@@ -8,7 +8,7 @@ package:
 source:
   url: http://ftp.acc.umu.se/pub/GNOME/sources/gcab/{{ version }}/gcab-{{ version }}.tar.xz
   sha256: 67a5fa9be6c923fbc9197de6332f36f69a33dadc9016a2b207859246711c048f
-  patches:
+  patches:                         # [osx]
     - disable-linker-script.patch  # [osx]
 
 build:
@@ -24,7 +24,7 @@ requirements:
     - ninja
     - meson
     - pkg-config
-    - patch           # [not win]
+    - patch           # [osx]
   host:
     - gobject-introspection
     - glib
@@ -42,6 +42,8 @@ about:
   license_file:
     - COPYING
   summary: A GObject library to create cabinet files
+  description: |
+    gcab - Program to create and manage Microsoft cabinet (.cab) archives.
   dev_url: https://github.com/GNOME/gcab
   doc_url: https://github.com/GNOME/gcab
 
