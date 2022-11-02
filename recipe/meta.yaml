@@ -54,6 +54,6 @@ extra:
   recipe-maintainers:
     - isuruf
     - xhochy
+    - katietz
   skip-lints:
-    - missing_description
     - missing_doc_source_url
