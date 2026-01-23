@@ -33,6 +33,7 @@ requirements:
   host:
     - libglib {{ glib }}
     - zlib {{ zlib }}
+    - gettext {{ gettext }}  # [osx]
 
 test:
   commands:
