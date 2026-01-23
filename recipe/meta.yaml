@@ -28,7 +28,6 @@ requirements:
     - setuptools
     - gobject-introspection
   host:
-    - gobject-introspection
     - glib {{ glib }}
     - zlib {{ zlib }}
     - gettext {{ gettext }}   # [osx]
