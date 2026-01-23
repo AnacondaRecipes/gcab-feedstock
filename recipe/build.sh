@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/usr/bin/env bash
 set -euo pipefail
 
 mkdir -p build
@@ -9,13 +8,19 @@ cd build
 rm ../docs/reference/meson.build
 touch ../docs/reference/meson.build 
 
-
+# necessary to ensure the gobject-introspection-1.0 pkg-config file gets found
+# meson needs this to determine where the g-ir-scanner script is located
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$BUILD_PREFIX/lib/pkgconfig
 export PKG_CONFIG=$BUILD_PREFIX/bin/pkg-config
-if [[ "${build_platform}" != "${target_platform}" ]]; then
-  # Generation of introspection isn't currently working in cross-compilation mode.
-  export MESON_ARGS="${MESON_ARGS:-} -Dintrospection=false"
-fi
-meson ${MESON_ARGS:-} --buildtype=release --prefix="$PREFIX" --backend=ninja -Dlibdir=lib -Dvapi=false ..
+
+echo "MESON_ARGS=${MESON_ARGS}"
+
+meson ${MESON_ARGS:-} \
+  --prefix="$PREFIX" \
+  --backend=ninja \
+  -Dintrospection=true \
+  -Dlibdir=lib \
+  -Dvapi=false ..
+
 ninja
 ninja install
-
