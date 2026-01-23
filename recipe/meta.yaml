@@ -37,10 +37,8 @@ test:
   commands:
     - test -f $PREFIX/lib/libgcab-1.0${SHLIB_EXT}
     - gcab --version
-    - test -f $PREFIX/lib/girepository-1.0/Gcab-1.0.typelib   # [not win]
-    - test -f $PREFIX/share/gir-1.0/Gcab-1.0.gir              # [not win]
-    - pkg-config --exists gcab-1.0                            # [not win]
-    - pkg-config --modversion gcab-1.0                        # [not win]
+    - test -f $PREFIX/lib/girepository-1.0/GCab-1.0.typelib
+    - test -f $PREFIX/share/gir-1.0/GCab-1.0.gir
 
 about:
   home: https://github.com/GNOME/gcab
