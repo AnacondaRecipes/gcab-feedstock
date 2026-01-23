@@ -22,15 +22,14 @@ requirements:
   build:
     - {{ stdlib('c') }}
     - {{ compiler('c') }}
-    - ninja
     - meson
+    - ninja-base
     - pkg-config
     - setuptools
     - gobject-introspection
   host:
-    - glib {{ glib }}
+    - libglib {{ glib }}
     - zlib {{ zlib }}
-    - gettext {{ gettext }}   # [osx]
 
 test:
   commands:
