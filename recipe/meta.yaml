@@ -27,7 +27,7 @@ requirements:
     - ninja-base
     - pkg-config
     - setuptools
-    - glib-tools {{ glib }}
+    - glib {{ glib }}
     - zlib {{ zlib }}
     - gobject-introspection
   host:
