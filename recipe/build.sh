@@ -5,8 +5,8 @@ mkdir -p build
 cd build
 
 # need gtkdoc-scan for doc buildin
-rm ../docs/reference/meson.build
-touch ../docs/reference/meson.build 
+# rm ../docs/reference/meson.build
+# touch ../docs/reference/meson.build 
 
 # # necessary to ensure the gobject-introspection-1.0 pkg-config file gets found
 # # meson needs this to determine where the g-ir-scanner script is located
@@ -22,6 +22,7 @@ meson ${MESON_ARGS:-} \
   --prefix="$PREFIX" \
   --backend=ninja \
   -Dintrospection=true \
+  -Ddocs=false \
   -Dlibdir=lib \
   -Dvapi=false ..
 
