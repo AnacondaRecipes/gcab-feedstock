@@ -4,10 +4,6 @@ set -euo pipefail
 mkdir -p build
 cd build
 
-# need gtkdoc-scan for doc buildin
-# rm ../docs/reference/meson.build
-# touch ../docs/reference/meson.build 
-
 # # necessary to ensure the gobject-introspection-1.0 pkg-config file gets found
 # # meson needs this to determine where the g-ir-scanner script is located
 # export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$BUILD_PREFIX/lib/pkgconfig
