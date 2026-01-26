@@ -23,15 +23,13 @@ requirements:
     - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - meson
-    - python
     - ninja-base
     - pkg-config
     - setuptools
     - glib {{ glib }}
-    - zlib {{ zlib }}
     - gobject-introspection
   host:
-    - libglib {{ glib }}
+    - glib {{ glib }}
     - zlib {{ zlib }}
     - gettext {{ gettext }}  # [osx]
 
@@ -59,5 +57,3 @@ extra:
     - isuruf
     - xhochy
     - katietz
-  skip-lints:
-    - missing_doc_source_url
