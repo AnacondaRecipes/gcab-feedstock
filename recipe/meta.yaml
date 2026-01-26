@@ -1,15 +1,15 @@
 {% set name = "gcab" %}
-{% set version = "1.4" %}
+{% set version = "1.6" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://ftp.acc.umu.se/pub/GNOME/sources/gcab/{{ version }}/gcab-{{ version }}.tar.xz
-  sha256: 67a5fa9be6c923fbc9197de6332f36f69a33dadc9016a2b207859246711c048f
-  patches:                         # [osx]
-    - disable-linker-script.patch  # [osx]
+  url: https://github.com/GNOME/{{ name }}/archive/refs/tags/v{{ version }}.zip
+  sha256: 042866b6d72006e8332bf278e0b8c50a6235dcce40a2702c56a271cc58535373
+  patches:
+    - 0001-Explicitly-specify-gir-dir.patch
 
 build:
   number: 0
@@ -20,22 +20,26 @@ build:
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('c') }}
-    - ninja
     - meson
+    - python
+    - ninja-base
     - pkg-config
-    - patch           # [osx]
-  host:
+    - setuptools
+    - glib {{ glib }}
     - gobject-introspection
-    - glib
-    - zlib
-  run:
-    - gettext           #  [osx]
+  host:
+    - glib {{ glib }}
+    - zlib {{ zlib }}
+    - gettext {{ gettext }}  # [osx]
 
 test:
   commands:
     - test -f $PREFIX/lib/libgcab-1.0${SHLIB_EXT}
     - gcab --version
+    - test -f $PREFIX/lib/girepository-1.0/GCab-1.0.typelib
+    - test -f $PREFIX/share/gir-1.0/GCab-1.0.gir
 
 about:
   home: https://github.com/GNOME/gcab
@@ -43,7 +47,6 @@ about:
   license_family: LGPL
   license_file:
     - COPYING
-  license_url: https://github.com/GNOME/gcab/blob/master/COPYING
   summary: A GObject library to create cabinet files
   description: |
     gcab - Program to create and manage Microsoft cabinet (.cab) archives.
@@ -55,5 +58,3 @@ extra:
     - isuruf
     - xhochy
     - katietz
-  skip-lints:
-    - missing_doc_source_url
