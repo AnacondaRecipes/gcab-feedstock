@@ -23,10 +23,8 @@ requirements:
     - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - meson
-    - python
     - ninja-base
     - pkg-config
-    - setuptools
     - glib {{ glib }}
     - gobject-introspection
   host:
