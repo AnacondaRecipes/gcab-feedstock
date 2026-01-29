@@ -17,7 +17,7 @@ meson ${MESON_ARGS:-} \
   -Dintrospection=true \
   -Ddocs=false \
   -Dlibdir=lib \
-  -Dvapi=false ..
+  -Dvapi=true ..
 
 ninja
 ninja install
