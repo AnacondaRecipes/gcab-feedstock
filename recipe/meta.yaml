@@ -23,6 +23,7 @@ requirements:
     - {{ stdlib('c') }}
     - {{ compiler('c') }}
     - meson
+    - vala
     - ninja-base
     - pkg-config
     - glib {{ glib }}
